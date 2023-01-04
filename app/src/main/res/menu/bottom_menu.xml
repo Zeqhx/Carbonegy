@@ -9,12 +9,17 @@
         android:id="@+id/secondFragment"
         android:icon="@drawable/ic_baseline_calendar_today_24"
         android:title="History" />
+
+    <item
+        android:id="@+id/placeholder"
+        android:title=""
+
+        />
     <item
         android:id="@+id/thirdFragment"
         android:icon="@drawable/ic_baseline_leaderboard_24"
-        android:title="Leaderboard"
+        android:title="Leaderboard" />
 
-        />
     <item
         android:id="@+id/forthFragment"
         android:icon="@drawable/ic_baseline_person_24"

@@ -9,20 +9,54 @@
         android:id="@+id/firstFragment"
         android:name="com.example.carbonegy2.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.carbonegy2.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_secondFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.example.carbonegy2.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/forthFragment"
         android:name="com.example.carbonegy2.ForthFragment"
         android:label="fragment_forth"
-        tools:layout="@layout/fragment_forth" />
+        tools:layout="@layout/fragment_forth" >
+        <action
+            android:id="@+id/action_forthFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.example.carbonegy2.recordFragment"
+        android:label="fragment_record"
+        tools:layout="@layout/fragment_record" >
+        <action
+            android:id="@+id/action_recordFragment_to_forthFragment"
+            app:destination="@id/forthFragment" />
+        <action
+            android:id="@+id/action_recordFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_recordFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+        <action
+            android:id="@+id/action_recordFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
 </navigation>
