@@ -4,20 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment"
-    android:background="#2f2f2f">
+    android:background="#2f2f2f"
+    tools:context=".SecondFragment">
 
-<TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginTop="356dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="356dp"
-        android:text="History Fragment"
+    <TextView
+        android:id="@+id/card"
+        android:layout_width="380dp"
+        android:layout_height="210dp"
+        android:background="@drawable/box"
+        android:fontFamily="@font/hind_guntur"
+        android:includeFontPadding="true"
+        android:paddingVertical="20dp"
+        android:text="Your current goal is to reduce emissions by :"
+        android:textAlignment="center"
+        android:textColor="#CCCCCC"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="188dp"
+        android:layout_height="66dp"
+        android:fontFamily="@font/hind_guntur"
+        android:paddingTop="10dp"
+        android:text="Edit Goal"
+        android:textAlignment="center"
+        android:textColor="#515151"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.789" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
