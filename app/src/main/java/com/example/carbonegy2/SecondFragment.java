@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -16,28 +15,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.BarChart;
-
-
 import androidx.fragment.app.Fragment;
 
 import com.example.carbonegy2.R;
-import com.github.mikephil.charting.components.LimitLine;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SecondFragment extends Fragment {
 
     // Declare a context object
-    BarChart chart;
     Context context;
     int inputNumber;
     TextView textView;
@@ -52,99 +36,15 @@ public class SecondFragment extends Fragment {
         inputNumber = sharedPreferences.getInt("input_number", 0);
         textView = view.findViewById(R.id.card);
         textView.setText("Your current goal is to reduce emissions by: " + String.valueOf(inputNumber) + "%");
-        chart = view.findViewById(R.id.chart);
-        // Set up the bar chart
-        BarChart chart = view.findViewById(R.id.chart);
-        List<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0, 25));
-        entries.add(new BarEntry(1, 50));
-        entries.add(new BarEntry(2, 75));
-        entries.add(new BarEntry(3, 100));
-        entries.add(new BarEntry(4, 75));
-        entries.add(new BarEntry(5, 50));
-        BarDataSet set = new BarDataSet(entries, "BarDataSet");
-        set.setColor(Color.parseColor("#E2FB4D"));
-
-        BarData data = new BarData(set);
-
-        chart.setData(data);
-        chart.setFitBars(true);
-        chart.setPinchZoom(false);
-        chart.setDoubleTapToZoomEnabled(false);
-
-        XAxis xAxis = chart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setDrawGridLines(false);
-        xAxis.setDrawAxisLine(false);
-        xAxis.setDrawLabels(true);
-        xAxis.setTextSize(12f);
 
 
-        xAxis.setTextColor(Color.parseColor("#d9d9d9"));
-
-        YAxis yAxis = chart.getAxisLeft();
-        yAxis.setDrawGridLines(false);
-        yAxis.setDrawAxisLine(false);
-        yAxis.setDrawLabels(true);
-        yAxis.setTextSize(12f);
-        yAxis.setTextColor(Color.parseColor("#d9d9d9"));
-        LimitLine limitLine = new LimitLine(100 - inputNumber, "Your Goal");
-        limitLine.setTextColor(Color.parseColor("#FFFFFF"));
-        limitLine.setTextSize(18);
-        limitLine.setLineColor(Color.parseColor("#E2FB4D"));
-        limitLine.setLineWidth(1f);
-
-        YAxis leftAxis = chart.getAxisLeft();
-        leftAxis.addLimitLine(limitLine);
-
-        // Update the chart
-        chart.invalidate();
-
-
-        YAxis yAxisRight = chart.getAxisRight();
-        yAxisRight.setDrawGridLines(false);
-        yAxisRight.setDrawAxisLine(false);
-        yAxisRight.setDrawLabels(false);
-
-        chart.setDrawBorders(false);
-        chart.getBarData().setDrawValues(false);
-        chart.getLegend().setEnabled(false);
-        chart.setExtraBottomOffset(15f);
-
-        chart.getDescription().setEnabled(false);
-        xAxis.setValueFormatter(new IndexAxisValueFormatter(new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun"}));
 
 
         Button button = (Button) view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Show the number input dialog
                 showNumberInputDialog();
-
-                // Update the value of inputNumber in the shared preferences
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt("input_number", inputNumber);
-                editor.apply();
-
-                // Remove all existing limit lines
-                YAxis leftAxis = chart.getAxisLeft();
-                leftAxis.removeAllLimitLines();
-
-                // Add a new limit line at the updated value of inputNumber
-                LimitLine limitLine = new LimitLine(100 - inputNumber, "Your Goal");
-                limitLine.setTextColor(Color.parseColor("#FFFFFF"));
-                limitLine.setTextSize(18);
-                limitLine.setLineColor(Color.parseColor("#E2FB4D"));
-                limitLine.setLineWidth(1f);
-                leftAxis.addLimitLine(limitLine);
-
-                // Update the chart
-                chart.invalidate();
-
-                editor.putInt("input_number", inputNumber);
-                editor.apply();
-                textView.setText("Your current goal is to reduce emissions by: " + String.valueOf(inputNumber) + "%");
             }
         });
 
@@ -176,31 +76,21 @@ public class SecondFragment extends Fragment {
                     return;
                 }
 
-                inputNumber = Integer.parseInt(inputValue);
+                inputNumber =  Integer.parseInt(inputValue);
+
 
                 if (inputNumber >= 1 && inputNumber <= 100) {
-                    // Update the value of inputNumber in the shared preferences
+
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt("input_number", inputNumber);
                     editor.apply();
+                    // Get the input value
 
-                    // Remove all existing limit lines
-                    YAxis leftAxis = chart.getAxisLeft();
-                    leftAxis.removeAllLimitLines();
-
-                    // Add a new limit line at the updated value of inputNumber
-                    LimitLine limitLine = new LimitLine(100 - inputNumber, "Your Goal");
-                    limitLine.setTextColor(Color.parseColor("#FFFFFF"));
-                    limitLine.setTextSize(18);
-                    limitLine.setLineColor(Color.parseColor("#E2FB4D"));
-                    limitLine.setLineWidth(1f);
-                    leftAxis.addLimitLine(limitLine);
-
-                    // Update the chart
-                    chart.invalidate();
                     textView.setText("Your current goal is to reduce emissions by: " + String.valueOf(inputNumber) + "%");
+                    // Do something with the input value
                 } else {
                     Toast.makeText(context, "Enter a number between 1 and 100", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
