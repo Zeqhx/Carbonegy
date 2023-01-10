@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/bg2"
-        android:layout_width="509dp"
-        android:layout_height="765dp"
+        android:layout_width="729dp"
+        android:layout_height="1097dp"
 
         android:paddingVertical="-20dp"
         android:tint="#85000000"

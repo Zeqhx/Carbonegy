@@ -24,6 +24,7 @@
         android:layout_gravity="bottom"
         app:fabCradleRoundedCornerRadius="20dp"
         app:fabCradleMargin="10dp"
+        android:backgroundTint="#202020"
 
         app:fabCradleVerticalOffset="10dp">
 

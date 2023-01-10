@@ -23,7 +23,7 @@
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
             android:padding="24dp"
-            android:background="@drawable/squareblack">
+            android:background="@drawable/square">
 
             <TextView
                 android:id="@+id/editProfileText"

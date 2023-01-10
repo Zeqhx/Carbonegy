@@ -77,8 +77,7 @@ public class SignupActivity extends AppCompatActivity {
                 db.close();
 
                 if(newRowId > 0){
-                    //Successfully inserted new user
-                    //You can either clear the fields or redirect to login or main activity
+                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
                 }else{
                     //Unable to insert new user
                     Toast.makeText(SignupActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();

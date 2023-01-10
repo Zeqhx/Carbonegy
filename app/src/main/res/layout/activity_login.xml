@@ -7,13 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="@drawable/btn_bg"
+    
     android:backgroundTint="@color/white">
 
 
         <ImageView
-            android:id="@+id/bg"
-            android:layout_width="509dp"
-            android:layout_height="765dp"
+            android:id="@+id/bg3"
+            android:layout_width="729dp"
+            android:layout_height="1097dp"
 
             android:paddingVertical="-20dp"
             android:tint="#85000000"
