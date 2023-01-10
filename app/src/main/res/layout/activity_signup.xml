@@ -9,21 +9,21 @@
     android:backgroundTint="@color/white">
 
     <ImageView
-        android:id="@+id/bg"
+        android:id="@+id/bg2"
         android:layout_width="509dp"
         android:layout_height="765dp"
 
+        android:paddingVertical="-20dp"
+        android:tint="#85000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background" />
 
     <View
         android:id="@+id/view"
-        android:layout_width="420dp"
+        android:layout_width="match_parent"
         android:layout_height="869dp"
         android:layout_marginTop="534dp"
         android:background="@drawable/square"
@@ -47,6 +47,7 @@
         android:shadowDy="6"
         android:shadowRadius="10"
         android:text="Carbonegy"
+        android:textAlignment="viewStart"
         android:textColor="@color/light_font"
         android:textSize="60sp"
         android:textStyle="bold"
@@ -59,23 +60,23 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome !"
+        android:fontFamily="@font/hind_guntur"
+        android:text="Welcome!"
         android:textColor="@color/white"
-        android:textSize="40sp"
-        android:textStyle="italic"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.06999999" />
+        app:layout_constraintVertical_bias="0.089" />
 
     <EditText
         android:id="@+id/inputFullName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="45dp"
         android:background="@drawable/input_bg"
         android:backgroundTint="@color/lightgrey"
@@ -148,7 +149,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="215dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/btn_bg"
         android:backgroundTint="@color/lightgrey"
         android:text="Register"
@@ -156,6 +157,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/inputBirthDate"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/inputBirthDate"
         app:layout_constraintTop_toBottomOf="@+id/inputBirthDate" />
 
@@ -200,9 +202,7 @@
         app:layout_constraintBottom_toTopOf="@+id/inputFullName"
         app:layout_constraintEnd_toEndOf="@+id/inputFullName"
         app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="@+id/inputFullName"
-        app:layout_constraintTop_toBottomOf="@+id/welcome"
-        app:layout_constraintVertical_bias="0.93" />
+        app:layout_constraintStart_toStartOf="@+id/inputFullName" />
 
     <TextView
         android:id="@+id/textView6"

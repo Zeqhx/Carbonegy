@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_carbonegy_icon"
+        android:icon="@mipmap/ic_icon_app"
         android:label="Carbonegy"
-        android:roundIcon="@mipmap/ic_carbonegy_icon_rounded"
+        android:roundIcon="@mipmap/ic_icon_app_rounded"
         android:supportsRtl="true"
         android:theme="@style/Theme.Carbonegy2"
         tools:targetApi="31">

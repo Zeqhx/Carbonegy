@@ -8,6 +8,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+
 import androidx.fragment.app.Fragment;
 
 public class FirstFragment extends Fragment {
@@ -29,8 +30,8 @@ public class FirstFragment extends Fragment {
         progressBar.setMax(100);
         progressBar.setProgress(progress);
 
-        // Find the ListView and set its adapter
-        ListView listView = view.findViewById(R.id.list_view);
+
+
         // TODO: Set the adapter for the ListView
 
         // Find the TextView and set its text
