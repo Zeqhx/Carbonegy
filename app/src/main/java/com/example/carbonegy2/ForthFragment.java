@@ -1,12 +1,17 @@
 package com.example.carbonegy2;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,6 +57,7 @@ public class ForthFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -59,6 +65,27 @@ public class ForthFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_forth, container, false);
+//        return inflater.inflate(R.layout.fragment_forth, container, false);
+        View view = inflater.inflate(R.layout.fragment_forth, container, false);
+
+//        setContentView(R.layout.fragment_editprofile);
+
+        Button btn1 = (Button) view.findViewById(R.id.btnEditInfo);
+        Button btn2 = (Button) view.findViewById(R.id.btnSignOut);
+
+        btn1.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                startActivity(new Intent(getActivity(), EditProfileActivity.class));
+            } });
+
+        btn2.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }});
+
+        return view;
     }
-}
+
+    }
