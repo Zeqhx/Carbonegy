@@ -123,6 +123,7 @@ public class DailyEmissionFragment extends Fragment {
         xAxis.setTextColor(Color.parseColor("#d9d9d9"));
 
         YAxis yAxis = chart.getAxisLeft();
+        yAxis.setAxisMaximum(100);
         yAxis.setDrawGridLines(false);
         yAxis.setDrawAxisLine(false);
         yAxis.setDrawLabels(true);

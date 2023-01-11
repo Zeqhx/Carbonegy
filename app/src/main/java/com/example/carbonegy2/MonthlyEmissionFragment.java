@@ -130,6 +130,7 @@ public class MonthlyEmissionFragment extends Fragment {
         xAxis.setTextColor(Color.parseColor("#d9d9d9"));
 
         YAxis yAxis = chart.getAxisLeft();
+        yAxis.setAxisMaximum(100);
         yAxis.setDrawGridLines(false);
         yAxis.setDrawAxisLine(false);
         yAxis.setDrawLabels(true);
@@ -159,6 +160,8 @@ public class MonthlyEmissionFragment extends Fragment {
 
         chart.getDescription().setEnabled(false);
         xAxis.setValueFormatter(new IndexAxisValueFormatter(new String[]{"Jan", "Feb", "Mar", "Apr", "May", "June"}));
+//        yAxis.setValueFormatter(new IndexAxisValueFormatter(new int[]{0}));
+
 
         Button button = (Button) view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
