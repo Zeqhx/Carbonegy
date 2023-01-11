@@ -4,26 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupActivity"
     android:background="@drawable/btn_bg"
-    android:backgroundTint="@color/white">
+    android:backgroundTint="@color/white"
+    tools:context=".SignupActivity">
 
     <ImageView
-        android:id="@+id/bg2"
-        android:layout_width="729dp"
-        android:layout_height="1097dp"
+        android:id="@+id/bg"
+        android:layout_width="509dp"
+        android:layout_height="765dp"
 
-        android:paddingVertical="-20dp"
-        android:tint="#85000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background" />
 
     <View
         android:id="@+id/view"
-        android:layout_width="match_parent"
+        android:layout_width="420dp"
         android:layout_height="869dp"
         android:layout_marginTop="534dp"
         android:background="@drawable/square"
@@ -47,7 +47,6 @@
         android:shadowDy="6"
         android:shadowRadius="10"
         android:text="Carbonegy"
-        android:textAlignment="viewStart"
         android:textColor="@color/light_font"
         android:textSize="60sp"
         android:textStyle="bold"
@@ -60,16 +59,16 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/hind_guntur"
-        android:text="Welcome!"
+        android:text="Welcome !"
         android:textColor="@color/white"
-        android:textSize="50sp"
+        android:textSize="40sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.089" />
+        app:layout_constraintVertical_bias="0.06999999" />
 
     <EditText
         android:id="@+id/inputFullName"
@@ -84,7 +83,7 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -98,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <EditText
-        android:id="@+id/inputEmail2"
+        android:id="@+id/inputPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -123,7 +122,7 @@
 
 
     <EditText
-        android:id="@+id/inputBirthDate"
+        android:id="@+id/inputConPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -141,9 +140,37 @@
         android:paddingBottom="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmail2"
-        app:layout_constraintStart_toStartOf="@+id/inputEmail2"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail2" />
+        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+
+    <Spinner
+        android:id="@+id/inputCity"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="45dp"
+        android:background="@drawable/input_bg"
+        android:backgroundTint="@color/lightgrey"
+        android:drawableLeft="@drawable/crown"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="City"
+        android:minHeight="48dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:spinnerMode="dropdown"
+        android:entries="@array/city"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/inputConPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputConPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputConPassword"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -156,16 +183,15 @@
         android:textColor="@color/grey"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/inputBirthDate"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/inputBirthDate"
-        app:layout_constraintTop_toBottomOf="@+id/inputBirthDate" />
+        app:layout_constraintEnd_toEndOf="@+id/inputConPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputConPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputCity" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="215dp"
         android:layout_height="50dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btn_bg"
         android:backgroundTint="@color/green"
         android:text="Login"
@@ -202,7 +228,9 @@
         app:layout_constraintBottom_toTopOf="@+id/inputFullName"
         app:layout_constraintEnd_toEndOf="@+id/inputFullName"
         app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="@+id/inputFullName" />
+        app:layout_constraintStart_toStartOf="@+id/inputFullName"
+        app:layout_constraintTop_toBottomOf="@+id/welcome"
+        app:layout_constraintVertical_bias="0.93" />
 
     <TextView
         android:id="@+id/textView6"
@@ -211,10 +239,10 @@
         android:text="Password"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputEmail2"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmail2"
+        app:layout_constraintBottom_toTopOf="@+id/inputPassword"
+        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
         app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="@+id/inputEmail2"
+        app:layout_constraintStart_toStartOf="@+id/inputPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputFullName"
         app:layout_constraintVertical_bias="0.65999997" />
 
@@ -222,13 +250,28 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="10dp"
         android:text="Confirm Password"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputBirthDate"
-        app:layout_constraintStart_toStartOf="@+id/inputBirthDate"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail2"
+        app:layout_constraintBottom_toTopOf="@+id/inputConPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputConPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword"
         app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="4dp"
+        android:text="City"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/inputCity"
+        app:layout_constraintStart_toStartOf="@+id/inputConPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputConPassword"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,4 +26,13 @@
     <string name="user2">User2</string>
     <string name="_10th">10th</string>
     <string name="_9th">9th</string>
+    <string name="city_name">dropDownMenuExample</string>
+    <string-array name="city">
+        <item>City</item>
+        <item>KL</item>
+        <item>Selangor</item>
+        <item>Melaka</item>
+        <item>Johor</item>
+        <item>Perak</item>
+    </string-array>
 </resources>
