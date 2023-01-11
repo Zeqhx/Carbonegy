@@ -8,8 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,6 +27,19 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        //original
+        Spinner inputCity=findViewById(R.id.inputCity);
+//        ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, R.array.city, android.R.layout.simple_spinner_item);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.city, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        inputCity.setAdapter(adapter);
+
+//        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.city, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+//        inputCity.setAdapter(adapter);
+//        ArrayAdapter adapter = ArrayAdapter.createFromResource(this,R.array.city, R.layout.spinner_item;
+
+
         dbHelper = new MyDBHelper(this);
 
         Button btnSignup = (Button) findViewById(R.id.btnLogin);
@@ -32,8 +47,8 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v){
 
                 EditText inputEmail = (EditText) findViewById(R.id.inputFullName);
-                EditText inputPassword = (EditText) findViewById(R.id.inputEmail2);
-                EditText inputConfirmPassword = (EditText) findViewById(R.id.inputBirthDate);
+                EditText inputPassword = (EditText) findViewById(R.id.inputPassword);
+                EditText inputConfirmPassword = (EditText) findViewById(R.id.inputConPassword);
 
 
                 String email = inputEmail.getText().toString();

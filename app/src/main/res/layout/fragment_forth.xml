@@ -113,10 +113,10 @@
                 android:paddingBottom="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/inputEmail2"
+                app:layout_constraintEnd_toEndOf="@+id/inputPassword"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/inputEmail2"
-                app:layout_constraintTop_toBottomOf="@+id/inputEmail2" />
+                app:layout_constraintStart_toStartOf="@+id/inputPassword"
+                app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
             <TextView
                 android:id="@+id/inputPhone"
@@ -144,7 +144,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputAvgEmission" />
 
             <TextView
-                android:id="@+id/inputEmail2"
+                android:id="@+id/inputPassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
