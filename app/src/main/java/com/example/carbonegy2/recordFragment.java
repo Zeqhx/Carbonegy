@@ -2,9 +2,14 @@ package com.example.carbonegy2;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,10 +27,16 @@ import android.view.inputmethod.EditorInfo;
 
 import androidx.fragment.app.Fragment;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class recordFragment extends Fragment {
     private Button button;
     private Button secondbutton;
     private Button electricbutton;
+    private MyDBHelper dbHelper;
+    private int userId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,6 +83,20 @@ public class recordFragment extends Fragment {
                 // Get the input text
                 String inputText = input.getText().toString();
                 int number = Integer.parseInt(inputText);
+                //saving to emissions table
+                MyDBHelper dbHelper = new MyDBHelper(getContext());
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                String email = sharedPref.getString("email", "default_email");
+
+                SQLiteDatabase db = dbHelper.getReadableDatabase();
+                Cursor cursor = db.query("users", new String[]{"id"}, "email = ?", new String[]{email}, null, null, null);
+                if (cursor.moveToFirst()) {
+                    userId = cursor.getInt(0);
+                }
+                cursor.close();
+                Log.d("MainActivity", "Email: " + email);
+                dbHelper.addEmission(userId, number, date);
 
                 // Do something with the input text here
             }
@@ -147,6 +172,20 @@ public class recordFragment extends Fragment {
                         // Do something with the input text and selected item here
 
                 }
+                MyDBHelper dbHelper = new MyDBHelper(getContext());
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                String email = sharedPref.getString("email", "default_email");
+
+                SQLiteDatabase db = dbHelper.getReadableDatabase();
+                Cursor cursor = db.query("users", new String[]{"id"}, "email = ?", new String[]{email}, null, null, null);
+                if (cursor.moveToFirst()) {
+                    userId = cursor.getInt(0);
+                }
+                cursor.close();
+                Log.d("MainActivity", "Email: " + "saved distance emission");
+                dbHelper.addEmission(userId, number, date);
+
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -176,6 +215,21 @@ public class recordFragment extends Fragment {
                 // Get the input text
                 String inputText = input.getText().toString();
                 int number = Integer.parseInt(inputText);
+                number *= 0.38782148;
+
+                MyDBHelper dbHelper = new MyDBHelper(getContext());
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                String email = sharedPref.getString("email", "default_email");
+
+                SQLiteDatabase db = dbHelper.getReadableDatabase();
+                Cursor cursor = db.query("users", new String[]{"id"}, "email = ?", new String[]{email}, null, null, null);
+                if (cursor.moveToFirst()) {
+                    userId = cursor.getInt(0);
+                }
+                cursor.close();
+                Log.d("MainActivity", "Email: " + "saved electric emission");
+                dbHelper.addEmission(userId, number, date);
 
                 // Do something with the input text here
             }
