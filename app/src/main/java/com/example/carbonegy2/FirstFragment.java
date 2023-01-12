@@ -21,6 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FirstFragment extends Fragment {
+
+    RecyclerView rv;
+    ArrayList<String> dataSource;
+    LinearLayoutManager linearLayoutManager;
+    MyRvAdapter myRvAdapter;
+
     private MyDBHelper dbHelper;
     private TextView record1,record2,record3,record4,record5,record6;
     private int userId;
@@ -68,10 +74,65 @@ public class FirstFragment extends Fragment {
         }
         cursor.close();
 
+        rv = view.findViewById(R.id.horizontalRv);
+
+        //save data source
+        dataSource = new ArrayList<>();
+        dataSource.add("The world can emit more than 2.4 million pounds of CO2 per second.");
+        dataSource.add("Travelling by bike or foot emits a fraction of the CO2 *of a car*.");
+        dataSource.add("Fossil fuel account for around 80-90 per cent of our CO2 emissions.");
+        dataSource.add("Buildings emit 39 percent of the CO2 **released in the US**.");
+        dataSource.add("The more paper you use,the more you are contributing to carbon emissions.");
+        dataSource.add("On the scale of CO2 emissions,human sources far outweigh volcanoes.");
+
+//        linearLayoutManager = (new LinearLayoutManager(getActivity()));
+        linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+//        linearLayoutManager = new LinearLayoutManager(getActivity(),FirstFragment.classLinearLayoutManager.HORIZONTAL, false);
+
+        myRvAdapter = new MyRvAdapter(dataSource);
+        rv.setLayoutManager(linearLayoutManager);
+        rv.setAdapter(myRvAdapter);
 
         return view;
     }
 
+    class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.MyHolder>{
+        ArrayList<String> data;
+
+        public MyRvAdapter(ArrayList<String> data) {
+            this.data = data;
+        }
+
+        @NonNull
+        @Override
+        public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//            View view = LayoutInflater.from(FirstFragment.this).inflate(R.layout.rv_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_item, parent, false);
+            return new MyHolder(view);
+        }
+
+        @Override
+        public int getItemCount() {
+            return data.size();
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+            holder.funFact.setText(data.get(position));
+
+        }
+
+        class MyHolder extends RecyclerView.ViewHolder{
+
+            TextView funFact;
+
+            public MyHolder(@NonNull View itemView) {
+                super(itemView);
+                funFact = itemView.findViewById(R.id.funFact);
+            }
+        }
+
+    }
 
 
 
