@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="0.06999999" />
 
     <EditText
-        android:id="@+id/inputFullName"
+        android:id="@+id/FullNameView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <EditText
-        android:id="@+id/inputPassword"
+        android:id="@+id/EmailView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -115,10 +115,10 @@
         android:paddingBottom="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/inputFullName"
+        app:layout_constraintEnd_toEndOf="@+id/FullNameView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputFullName"
-        app:layout_constraintTop_toBottomOf="@+id/inputFullName" />
+        app:layout_constraintStart_toStartOf="@+id/FullNameView"
+        app:layout_constraintTop_toBottomOf="@+id/FullNameView" />
 
 
     <EditText
@@ -140,9 +140,9 @@
         android:paddingBottom="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
-        app:layout_constraintStart_toStartOf="@+id/inputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/EmailView"
+        app:layout_constraintStart_toStartOf="@+id/EmailView"
+        app:layout_constraintTop_toBottomOf="@+id/EmailView" />
 
     <Spinner
         android:id="@+id/inputCity"
@@ -225,10 +225,10 @@
         android:text="Email"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputFullName"
-        app:layout_constraintEnd_toEndOf="@+id/inputFullName"
+        app:layout_constraintBottom_toTopOf="@+id/FullNameView"
+        app:layout_constraintEnd_toEndOf="@+id/FullNameView"
         app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="@+id/inputFullName"
+        app:layout_constraintStart_toStartOf="@+id/FullNameView"
         app:layout_constraintTop_toBottomOf="@+id/welcome"
         app:layout_constraintVertical_bias="0.93" />
 
@@ -239,11 +239,11 @@
         android:text="Password"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputPassword"
-        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+        app:layout_constraintBottom_toTopOf="@+id/EmailView"
+        app:layout_constraintEnd_toEndOf="@+id/EmailView"
         app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="@+id/inputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputFullName"
+        app:layout_constraintStart_toStartOf="@+id/EmailView"
+        app:layout_constraintTop_toBottomOf="@+id/FullNameView"
         app:layout_constraintVertical_bias="0.65999997" />
 
     <TextView
@@ -256,7 +256,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/inputConPassword"
         app:layout_constraintStart_toStartOf="@+id/inputConPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/EmailView"
         app:layout_constraintVertical_bias="0.7" />
 
     <TextView

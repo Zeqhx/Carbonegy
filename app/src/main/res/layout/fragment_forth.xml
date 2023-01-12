@@ -42,6 +42,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+            <TextView
+                android:id="@+id/phoneNumberView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/input_bg"
+                android:backgroundTint="@color/lightgrey"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="Phone"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/AverageEmissionView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/AverageEmissionView"
+                app:layout_constraintTop_toBottomOf="@+id/AverageEmissionView" />
+
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="100dp"
@@ -67,7 +92,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/inputFullName"
+                android:id="@+id/FullNameView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
@@ -94,7 +119,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
             <TextView
-                android:id="@+id/inputAvgEmission"
+                android:id="@+id/AverageEmissionView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -113,23 +138,24 @@
                 android:paddingBottom="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+                app:layout_constraintEnd_toEndOf="@+id/EmailView"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/inputPassword"
-                app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+                app:layout_constraintStart_toStartOf="@+id/EmailView"
+                app:layout_constraintTop_toBottomOf="@+id/EmailView" />
 
             <TextView
-                android:id="@+id/inputPhone"
+                android:id="@+id/CityView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/input_bg"
                 android:backgroundTint="@color/lightgrey"
-                android:drawableLeft="@drawable/ic_phone"
+
+                android:drawableLeft="@drawable/ic_co2"
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:gravity="center_vertical"
-                android:hint="Phone"
+                android:hint="City"
                 android:inputType="phone"
                 android:minHeight="48dp"
                 android:paddingLeft="20dp"
@@ -138,13 +164,13 @@
                 android:paddingBottom="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/inputAvgEmission"
+                app:layout_constraintEnd_toEndOf="@+id/AverageEmissionView"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/inputAvgEmission"
-                app:layout_constraintTop_toBottomOf="@+id/inputAvgEmission" />
+                app:layout_constraintStart_toStartOf="@+id/AverageEmissionView"
+                app:layout_constraintTop_toBottomOf="@+id/AverageEmissionView" />
 
             <TextView
-                android:id="@+id/inputPassword"
+                android:id="@+id/EmailView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -163,38 +189,38 @@
                 android:paddingBottom="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/inputFullName"
+                app:layout_constraintEnd_toEndOf="@+id/FullNameView"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/inputFullName"
-                app:layout_constraintTop_toBottomOf="@+id/inputFullName" />
+                app:layout_constraintStart_toStartOf="@+id/FullNameView"
+                app:layout_constraintTop_toBottomOf="@+id/FullNameView" />
 
 
             <Button
                 android:id="@+id/btnEditInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="80dp"
                 android:backgroundTint="@color/black"
                 android:onClick="SwitchEditProfile"
                 android:text="Edit info"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/inputPhone"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="@+id/inputPhone"
-                app:layout_constraintTop_toBottomOf="@+id/inputPhone" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CityView" />
 
             <Button
                 android:id="@+id/btnSignOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:backgroundTint="@color/green"
                 android:onClick="SwitchLogin"
                 android:text="Sign Out"
                 android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/btnEditInfo"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/btnEditInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnEditInfo" />
 
 

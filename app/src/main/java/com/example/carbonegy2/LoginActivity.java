@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,8 +24,8 @@ public class LoginActivity extends AppCompatActivity {
 
         Button btn1 = (Button) findViewById(R.id.btnLogin);
         Button btn2 = (Button) findViewById(R.id.btnRegister);
-        final EditText inputEmail = (EditText) findViewById(R.id.inputFullName);
-        final EditText inputPassword = (EditText) findViewById(R.id.inputPassword);
+        final EditText inputEmail = (EditText) findViewById(R.id.FullNameView);
+        final EditText inputPassword = (EditText) findViewById(R.id.EmailView);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -36,7 +36,12 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     boolean isValid = myDBHelper.isValidUser(email, password);
                     if (isValid) {
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("email", email);
+                        startActivity(intent);
+
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
                     }

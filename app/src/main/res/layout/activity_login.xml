@@ -71,7 +71,7 @@
             app:layout_constraintVertical_bias="0.102" />
 
         <EditText
-            android:id="@+id/inputFullName"
+            android:id="@+id/FullNameView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
@@ -121,13 +121,13 @@
             android:textColor="@color/grey"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+            app:layout_constraintEnd_toEndOf="@+id/EmailView"
             app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="@+id/inputPassword"
-            app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+            app:layout_constraintStart_toStartOf="@+id/EmailView"
+            app:layout_constraintTop_toBottomOf="@+id/EmailView" />
 
         <EditText
-            android:id="@+id/inputPassword"
+            android:id="@+id/EmailView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -145,10 +145,10 @@
             android:paddingBottom="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/inputFullName"
+            app:layout_constraintEnd_toEndOf="@+id/FullNameView"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/inputFullName"
-            app:layout_constraintTop_toBottomOf="@+id/inputFullName" />
+            app:layout_constraintStart_toStartOf="@+id/FullNameView"
+            app:layout_constraintTop_toBottomOf="@+id/FullNameView" />
 
         <Button
             android:id="@+id/btnRegister"
@@ -173,10 +173,10 @@
             android:text="Email"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/inputFullName"
-            app:layout_constraintEnd_toEndOf="@+id/inputFullName"
+            app:layout_constraintBottom_toTopOf="@+id/FullNameView"
+            app:layout_constraintEnd_toEndOf="@+id/FullNameView"
             app:layout_constraintHorizontal_bias="0.03"
-            app:layout_constraintStart_toStartOf="@+id/inputFullName" />
+            app:layout_constraintStart_toStartOf="@+id/FullNameView" />
 
         <TextView
             android:id="@+id/textView6"
@@ -185,11 +185,11 @@
             android:text="Password"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/inputPassword"
-            app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+            app:layout_constraintBottom_toTopOf="@+id/EmailView"
+            app:layout_constraintEnd_toEndOf="@+id/EmailView"
             app:layout_constraintHorizontal_bias="0.03"
-            app:layout_constraintStart_toStartOf="@+id/inputPassword"
-            app:layout_constraintTop_toBottomOf="@+id/inputFullName"
+            app:layout_constraintStart_toStartOf="@+id/EmailView"
+            app:layout_constraintTop_toBottomOf="@+id/FullNameView"
             app:layout_constraintVertical_bias="0.65999997" />
 
         <TextView
@@ -201,7 +201,7 @@
             android:text="Forgot password?"
             android:textColor="@color/white"
             android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="@+id/inputPassword"
-            app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+            app:layout_constraintStart_toStartOf="@+id/EmailView"
+            app:layout_constraintTop_toBottomOf="@+id/EmailView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
