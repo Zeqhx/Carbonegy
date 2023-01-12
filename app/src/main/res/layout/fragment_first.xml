@@ -23,12 +23,48 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:fontFamily="@font/hind_guntur"
+        android:text="You're at"
+        android:textColor="#E5E5E5"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@+id/progress_bar"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/progress_bar"
-        app:layout_constraintTop_toTopOf="@+id/progress_bar" />
+        app:layout_constraintTop_toTopOf="@+id/progress_bar"
+        app:layout_constraintVertical_bias="0.297" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hind_guntur"
+        android:text="75%"
+        android:textColor="#E5FF48"
+        android:textSize="70sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@+id/progress_bar"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/progress_bar"
+        app:layout_constraintTop_toTopOf="@+id/progress_bar"
+        app:layout_constraintVertical_bias="0.539" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="174dp"
+        android:layout_height="83dp"
+        android:fallbackLineSpacing="false"
+        android:fontFamily="@font/hind_guntur"
+        android:lineSpacingExtra="-10sp"
+        android:text="of this month's emissions goal"
+        android:textAlignment="center"
+        android:textColor="#E4E4E4"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@+id/progress_bar"
+        app:layout_constraintStart_toStartOf="@+id/progress_bar"
+        app:layout_constraintTop_toTopOf="@+id/progress_bar"
+        app:layout_constraintVertical_bias="0.829" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -46,9 +82,136 @@
             android:orientation="vertical" >
 
 
-            <androidx.recyclerview.widget.RecyclerView
+            <TextView
+                android:id="@+id/text_view3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Recent records"
+                android:textColor="#C5C5C5"
+                android:textSize="28sp" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#C4C4C4" />
+
+            <TextView
+                android:id="@+id/Record1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textColor="#E1FA4D" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#B1B1B1" />
+
+            <TextView
+                android:id="@+id/Record2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textColor="#FFE1FA4D" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#B1B1B1" />
+
+            <TextView
+                android:id="@+id/Record3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textColor="#FFE1FA4D" />
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#B1B1B1" />
+
+            <TextView
+                android:id="@+id/Record4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textColor="#FFE1FA4D" />
+
+            <View
+                android:id="@+id/divider8"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#B1B1B1" />
+
+            <TextView
+                android:id="@+id/Record5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textColor="#FFE1FA4D" />
+
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#B1B1B1" />
+
+            <TextView
+                android:id="@+id/Record6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textColor="#FFE1FA4D" />
+
+            <TextView
+                android:id="@+id/text_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Fun Fact!"
+                android:textColor="#C5C5C5"
+                android:textSize="28sp" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#C4C4C4" />
 
             <TextView
                 android:id="@+id/text_view"
@@ -57,7 +220,10 @@
                 android:layout_marginBottom="100dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact Fun Fact " />
+                android:text="@string/funfact"
+                android:textColor="#c5c5c5"
+                android:textSize="18sp" />
+
         </LinearLayout>
     </ScrollView>
 

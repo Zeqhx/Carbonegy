@@ -6,6 +6,7 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="#2f2f2f"
     tools:context=".ThirdFragment"
     android:layout_height="match_parent">
 

@@ -150,4 +150,3 @@ public class ForthFragment extends Fragment {
 
 
 }
-
