@@ -23,12 +23,10 @@ import java.util.List;
 
 public class FirstFragment extends Fragment {
 
-    RecyclerView rv, rv2, recordsrv;
-//    RecyclerView rv2;
+    RecyclerView rv, recordsrv;
     ArrayList<String> dataSource;
     LinearLayoutManager linearLayoutManager;
     MyRvAdapter myRvAdapter;
-    MyRvAdapter2 myRvAdapter2;
 
     private MyDBHelper dbHelper;
     private TextView Percentage;
@@ -123,23 +121,6 @@ public class FirstFragment extends Fragment {
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(myRvAdapter);
 
-        //vertical recyclerview
-        rv2 = view.findViewById(R.id.verticalRv);
-
-        //save data source
-        dataSource = new ArrayList<>();
-        dataSource.add("20km trip in sedan emits 20% carbon");
-        dataSource.add("4.5km trip in SUV emits 13% carbon");
-        dataSource.add("6.1km trip in motorbike emits 5% carbon");
-
-
-        linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-
-        myRvAdapter2 = new MyRvAdapter2(dataSource);
-        rv2.setLayoutManager(linearLayoutManager);
-        rv2.setAdapter(myRvAdapter2);
-
-
 
         return view;
     }
@@ -183,44 +164,6 @@ public class FirstFragment extends Fragment {
 
     }
 
-
-    class MyRvAdapter2 extends RecyclerView.Adapter<MyRvAdapter2.MyHolder2>{
-        ArrayList<String> data2;
-
-        public MyRvAdapter2(ArrayList<String> data) {
-            this.data2 = data;
-        }
-
-        @NonNull
-        @Override
-        public MyHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//            View view = LayoutInflater.from(FirstFragment.this).inflate(R.layout.rv_item, parent, false);
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_list, parent, false);
-            return new MyHolder2(view);
-        }
-
-        @Override
-        public int getItemCount() {
-            return data2.size();
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull MyHolder2 holder, int position) {
-            holder.recentRecord.setText(data2.get(position));
-
-        }
-
-        class MyHolder2 extends RecyclerView.ViewHolder{
-
-            TextView recentRecord;
-
-            public MyHolder2(@NonNull View itemView) {
-                super(itemView);
-                recentRecord = itemView.findViewById(R.id.recentRecord);
-            }
-        }
-
-    }
 
 
 
