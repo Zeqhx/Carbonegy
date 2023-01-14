@@ -52,6 +52,10 @@ public class SignupActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString();
                 String confirmPassword = inputConfirmPassword.getText().toString();
                 String city = inputCity.getSelectedItem().toString();
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    inputEmail.setError("Invalid email address");
+                    return;
+                }
                 if (email.isEmpty()) {
                     inputEmail.setError("Email is required");
                     return;
@@ -66,6 +70,12 @@ public class SignupActivity extends AppCompatActivity {
                     inputConfirmPassword.setError("Confirm password is required");
                     return;
                 }
+
+                if (password.length() < 8) {
+                    inputPassword.setError("Password must be at least 8 characters");
+                    return;
+                }
+
 
                 if (!password.equals(confirmPassword)) {
                     inputConfirmPassword.setError("Passwords do not match");

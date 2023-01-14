@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class MyDBHelper extends SQLiteOpenHelper {
 
@@ -28,7 +30,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createUsersTable = "CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT , email TEXT NOT NULL UNIQUE, password TEXT NOT NULL, city TEXT NOT NULL, phone TEXT, average_emission INTEGER)";
+        String createUsersTable = "CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT , email TEXT NOT NULL UNIQUE, password TEXT NOT NULL, city TEXT NOT NULL, phone TEXT, average_emission INTEGER, total_emissions INTEGER, userGoal INTEGER)";
         db.execSQL(createUsersTable);
 
         String createEmissionsTable = "CREATE TABLE emissions (id INTEGER PRIMARY KEY, user_id INTEGER, date TEXT, value INTEGER)";
@@ -73,17 +75,12 @@ public class MyDBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-
-
-
-
-
-
+    //add emission
         public boolean addEmission(int user_id, int amount, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("user_id", user_id);
-        values.put("amount", amount);
+        values.put("value", amount);
         values.put("date", date);
         long result = db.insert("emissions", null, values);
         return result != -1;
@@ -91,23 +88,14 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     public int getAverageEmission(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("users", new String[]{"id"}, "email = ?", new String[]{email}, null, null, null);
-        int user_id = 0;
-        if (cursor.moveToFirst()) {
-            user_id = cursor.getInt(0);
+        Cursor cursor = db.query("users", new String[]{"average_emission"}, "email = ?", new String[]{email}, null, null, null);
+        if(cursor.moveToFirst()) {
+            int avgEmission = cursor.getInt(cursor.getColumnIndex("average_emission"));
+            cursor.close();
+            return avgEmission;
         }
         cursor.close();
-        int totalEmission = 0;
-        int count = 0;
-        cursor = db.query("emissions", new String[]{"value"}, "user_id = ?", new String[]{String.valueOf(user_id)}, null, null, null);
-        if (cursor.moveToFirst()) {
-            do {
-                totalEmission += cursor.getInt(0);
-                count++;
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        return count == 0 ? 0 : totalEmission/count;
+        return 0;
     }
 
 
@@ -153,9 +141,69 @@ public class MyDBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public void updateTotalEmissions() {
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        db.execSQL("UPDATE users SET total_emissions = (SELECT SUM(value) FROM emissions WHERE user_id = users.id);");
+    }
 
+    public void addUserGoal(String email, int goal) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("userGoal", goal);
+        db.update("users", values, "email = ?", new String[] {email});
+        db.close();
+    }
+    public int getUserGoal(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("users", new String[] {"userGoal"}, "email = ?", new String[] {email}, null, null, null);
+        int goal = 0;
+        if (cursor.moveToFirst()) {
+            goal = cursor.getInt(cursor.getColumnIndex("userGoal"));
+        }
+        cursor.close();
+        return goal;
+    }
 
+    public int getTotalEmissions(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("users", new String[]{"total_emissions"}, "email = ?", new String[]{email}, null, null, null);
+        int totalEmissions = 0;
+        if (cursor.moveToFirst()) {
+            totalEmissions = cursor.getInt(cursor.getColumnIndex("total_emissions"));
+        }
+        cursor.close();
+        return totalEmissions;
+    }
+    public List<EmissionRecord> getEmissionRecords(int userId) {
+        List<EmissionRecord> emissionRecords = new ArrayList<>();
 
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("emissions", new String[]{"user_id", "date", "value"}, "user_id = ?", new String[]{String.valueOf(userId)}, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int user_id = cursor.getInt(0);
+                String date = cursor.getString(1);
+                int value = cursor.getInt(2);
+
+                EmissionRecord emissionRecord = new EmissionRecord(date, value);
+                emissionRecords.add(emissionRecord);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return emissionRecords;
+    }
+
+    public int getUserIdFromEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("users", new String[]{"id"}, "email = ?", new String[]{email}, null, null, null);
+        int userId = -1;
+        if (cursor.moveToFirst()) {
+            userId = cursor.getInt(0);
+        }
+        cursor.close();
+        return userId;
+    }
 
 }

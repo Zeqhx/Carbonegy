@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +23,15 @@ import java.util.List;
 
 public class FirstFragment extends Fragment {
 
-    RecyclerView rv;
-    RecyclerView rv2;
+    RecyclerView rv, rv2, recordsrv;
+//    RecyclerView rv2;
     ArrayList<String> dataSource;
     LinearLayoutManager linearLayoutManager;
     MyRvAdapter myRvAdapter;
     MyRvAdapter2 myRvAdapter2;
 
     private MyDBHelper dbHelper;
-    private TextView record1,record2,record3,record4,record5,record6;
+    private TextView Percentage;
     private int userId;
 
     @Override
@@ -48,30 +49,59 @@ public class FirstFragment extends Fragment {
         ProgressBar progressBar = view.findViewById(R.id.progress_bar);
         progressBar.setIndeterminate(false);
 
-        // Set the progress value based on the current emission value
-        int currentEmission = 75;
-        int emissionsGoal = 100;
-        int progress = (int) (((float) currentEmission / emissionsGoal) * 100);
-        progressBar.setMax(100);
-        progressBar.setProgress(progress);
-
-//        record1 = view.findViewById(R.id.Record1);
-//        record2 = view.findViewById(R.id.Record2);
-//        record3 = view.findViewById(R.id.Record3);
-//        record4 = view.findViewById(R.id.Record4);
-//        record5 = view.findViewById(R.id.Record5);
-//        record6 = view.findViewById(R.id.Record6);
-
+        //Set the progress value based on current emission value
         dbHelper = new MyDBHelper(getActivity());
-
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         String email = sharedPref.getString("email", "default_email");
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query("users", new String[]{"id"}, "email = ?", new String[]{email}, null, null, null);
-        if (cursor.moveToFirst()) {
-            userId = cursor.getInt(0);
-        }
-        cursor.close();
+        MyDBHelper myDBHelper = new MyDBHelper(getContext());
+        Log.d("FirstFragmnet", "Email at firstfragment is: " + email);
+        int currentEmission = myDBHelper.getTotalEmissions(email);
+
+        int inputNumber = myDBHelper.getUserGoal(email);
+
+        Log.d("FirstFragmnet", "limitline at firstfragment is: " + inputNumber);
+        int averageEmission = dbHelper.getAverageEmission(email);
+        Log.d("FirstFragment", "the users average emissions are " + averageEmission);
+        double inputnumberpercent = inputNumber / 100.0;
+        double emissionsGoal = averageEmission- (inputnumberpercent * averageEmission);
+        double progress = (currentEmission / emissionsGoal) * 100;
+        Log.d("FirstFragment", "percentage goal is  : " + inputnumberpercent);
+        Log.d("FirstFragment", "current emission in firstfragment is : " + currentEmission);
+        Log.d("FirstFragment", "This users goal is " + emissionsGoal);
+
+
+        Log.d("FirstFragment", "progress bar value " + progress);
+        progressBar.setMax(100);
+        Double newData = new Double(progress);
+        int progressdouble = newData.intValue();
+        progressBar.setProgress(progressdouble);
+        progressBar.invalidate();
+
+        Percentage = view.findViewById(R.id.percentageview);
+        Percentage.setText(String.valueOf(progressdouble) + "%");
+
+        //Create a new EmissionRecordRvAdapter
+        recordsrv = view.findViewById(R.id.recordsrv);
+        recordsrv.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        int userID = dbHelper.getUserIdFromEmail(email);
+        List emissionRecordList = dbHelper.getEmissionRecords(userID);
+        EmissionRecordRvAdapter adapter = new EmissionRecordRvAdapter(emissionRecordList, getActivity());
+
+        // Set the adapter to the RecyclerView
+        recordsrv.setAdapter(adapter);
+
+        // Set the layout manager for the RecyclerView
+        recordsrv.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        // Notify the adapter that the data has changed
+        adapter.notifyDataSetChanged();
+//        Cursor cursor = db.query("users", new String[]{"id"}, "email = ?", new String[]{email}, null, null, null);
+//        if (cursor.moveToFirst()) {
+//            userId = cursor.getInt(0);
+//        }
+//        cursor.close();
 
         //horizontal recyclerview
         rv = view.findViewById(R.id.horizontalRv);

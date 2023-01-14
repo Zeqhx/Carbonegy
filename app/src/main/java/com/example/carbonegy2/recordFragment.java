@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.view.inputmethod.EditorInfo;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -97,6 +98,12 @@ public class recordFragment extends Fragment {
                 cursor.close();
                 Log.d("MainActivity", "Email: " + email);
                 dbHelper.addEmission(userId, number, date);
+
+                dbHelper.updateTotalEmissions();
+                Fragment FirstFragment = new FirstFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment, FirstFragment);
+                transaction.commit();
 
                 // Do something with the input text here
             }
@@ -185,6 +192,11 @@ public class recordFragment extends Fragment {
                 cursor.close();
                 Log.d("MainActivity", "Email: " + "saved distance emission");
                 dbHelper.addEmission(userId, number, date);
+                dbHelper.updateTotalEmissions();
+                Fragment FirstFragment = new FirstFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment, FirstFragment);
+                transaction.commit();
 
             }
         });
@@ -230,6 +242,11 @@ public class recordFragment extends Fragment {
                 cursor.close();
                 Log.d("MainActivity", "Email: " + "saved electric emission");
                 dbHelper.addEmission(userId, number, date);
+                dbHelper.updateTotalEmissions();
+                Fragment FirstFragment = new FirstFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment, FirstFragment);
+                transaction.commit();
 
                 // Do something with the input text here
             }
